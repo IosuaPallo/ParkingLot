@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.util.Collection;
 
 @Entity
+@Table(name = "user")
 public class User {
     private Long id;
 
@@ -13,7 +14,6 @@ public class User {
     }
 
     @Id
-    @GeneratedValue
     public Long getId() {
         return id;
     }

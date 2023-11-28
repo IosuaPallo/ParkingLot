@@ -3,45 +3,48 @@ package com.parking.parkinglot.entities;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "car")
 public class Car {
+
+    @Id
+    @GeneratedValue
     private Long id;
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Id
-    @GeneratedValue
     public Long getId() {
         return id;
     }
 
 
-    private String license_plate;
+    private String licensePlate;
 
     @Basic
-    public String getLicense_plate() {
-        return license_plate;
+    public String getLicensePlate() {
+        return licensePlate;
     }
 
-    public void setLicense_plate(String license_plate) {
-        this.license_plate = license_plate;
+    public void setLicensePlate(String license_plate) {
+        this.licensePlate = license_plate;
     }
 
-    private String parking_spot;
+    private String parkingSpot;
 
     @Basic
-    public String getParking_spot() {
-        return parking_spot;
+    public String getParkingSpot() {
+        return parkingSpot;
     }
 
-    public void setParking_spot(String parking_spot) {
-        this.parking_spot = parking_spot;
+    public void setParkingSpot(String parking_spot) {
+        this.parkingSpot = parking_spot;
     }
 
     private User owner;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = User.class)
+    @JoinColumn(nullable = false, insertable = false, updatable = false)
     public User getOwner() {
         return owner;
     }
