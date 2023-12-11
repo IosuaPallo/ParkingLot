@@ -46,7 +46,7 @@
                     <select class="form-select" name="owner_id" id="owner_id" required>
                         <option value="">Choose...</option>
                         <c:forEach var="user" items="${users}" varStatus="status">
-                            <option value="${user.id}" ${car.ownerName == user.username ? 'selected' : ''}>${user.username}</option>
+                            <option value="${user.id}" ${car.ownerName eq user.username ? 'selected' : ''}>${user.username}</option>
                         </c:forEach>
                     </select>
                     <div class="invalid-feedback">
@@ -55,7 +55,8 @@
                 </div>
             </div>
             <hr class="mb-4">
-            <input class="btn btn-primary btn-lg" type="hidden" value="${car.id}"/>
+            <input  type="hidden" name="car_id" value="${car.id}"/>
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
         </div>
     </form>
 </t:pageTemplate>
