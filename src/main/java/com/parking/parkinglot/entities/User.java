@@ -7,13 +7,14 @@ import java.util.Collection;
 @Entity
 @Table(name = "user")
 public class User {
+    @Id
+    @GeneratedValue
     private Long id;
 
     public void setId(Long id) {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }

@@ -18,7 +18,6 @@ public class Car {
         return id;
     }
 
-
     private String licensePlate;
 
     @Basic
@@ -51,5 +50,17 @@ public class Car {
 
     public void setOwner(User owner) {
         this.owner = owner;
+    }
+
+
+    CarPhoto photo;
+
+    @OneToOne(mappedBy = "car",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    public CarPhoto getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(CarPhoto photo) {
+        this.photo = photo;
     }
 }
