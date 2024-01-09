@@ -1,4 +1,4 @@
-package com.parking.parkinglot.servlets;
+package com.parking.parkinglot.servlets.cars;
 
 import com.parking.parkinglot.common.UserDTO;
 import com.parking.parkinglot.ejb.CarsBean;
@@ -27,7 +27,7 @@ public class AddCar extends HttpServlet {
         List<UserDTO> users = usersBean.findAllUsers();
         request.setAttribute("users", users);
         request.setAttribute("numberOfUsers", users.size());
-        request.getRequestDispatcher("/WEB-INF/pages/addCar.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/cars/addCar.jsp").forward(request, response);
     }
 
     @Override

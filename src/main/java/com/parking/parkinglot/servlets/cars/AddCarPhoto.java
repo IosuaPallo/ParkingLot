@@ -1,4 +1,4 @@
-package com.parking.parkinglot.servlets;
+package com.parking.parkinglot.servlets.cars;
 
 import com.parking.parkinglot.common.CarDTO;
 import com.parking.parkinglot.ejb.CarsBean;
@@ -21,7 +21,7 @@ public class AddCarPhoto extends HttpServlet {
         CarDTO car = carsBean.findById(carId);
         request.setAttribute("car", car);
 
-        request.getRequestDispatcher("/WEB-INF/pages/addCarPhoto.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/pages/cars/addCarPhoto.jsp").forward(request,response);
     }
 
     @Override

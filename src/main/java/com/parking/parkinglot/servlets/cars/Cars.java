@@ -1,4 +1,4 @@
-package com.parking.parkinglot.servlets;
+package com.parking.parkinglot.servlets.cars;
 
 import com.parking.parkinglot.common.CarDTO;
 import com.parking.parkinglot.ejb.CarsBean;
@@ -28,7 +28,7 @@ public class Cars extends HttpServlet {
         request.setAttribute("maxParkingSpots", 10);
         request.setAttribute("numberOfFreeParkingSpots", 10 - cars.size());
         request.setAttribute("activePage", "Cars");
-        request.getRequestDispatcher("/WEB-INF/pages/cars.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/cars/cars.jsp").forward(request, response);
     }
 
     @Override

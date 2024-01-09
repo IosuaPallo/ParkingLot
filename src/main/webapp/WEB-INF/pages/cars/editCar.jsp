@@ -5,14 +5,7 @@
   Time: 1:34 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html><%--
-  Created by IntelliJ IDEA.
-  User: pallo
-  Date: 11/28/2023
-  Time: 12:15 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -60,10 +53,3 @@
         </div>
     </form>
 </t:pageTemplate>
-<head>
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>

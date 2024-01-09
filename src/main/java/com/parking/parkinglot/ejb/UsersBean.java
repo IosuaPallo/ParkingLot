@@ -4,6 +4,7 @@ import com.parking.parkinglot.common.UserDTO;
 
 import com.parking.parkinglot.entities.User;
 import com.parking.parkinglot.entities.UserGroup;
+import jakarta.ejb.EJB;
 import jakarta.ejb.EJBException;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
@@ -70,5 +71,32 @@ public class UsersBean {
         return entityManager.createQuery("select u.username from User u where u.id in :userIds",String.class)
                 .setParameter("userIds",userIds)
                 .getResultList();
+    }
+
+    public UserDTO findById(Long userId) {
+        User user = entityManager.createQuery("select u from User u where u.id= :id",User.class)
+                .setParameter("id",userId)
+                .getSingleResult();
+
+        return new UserDTO(user.getId(),user.getEmail(),user.getUsername());
+    }
+
+    public void updateUser(Long userId, String username, String email, String password) {
+        try{
+            User user = entityManager.createQuery("select u from User u where u.id = :id", User.class)
+                    .setParameter("id",userId)
+                    .getSingleResult();
+            if(user!=null){
+                user.setEmail(email);
+                user.setUsername(username);
+                if(!password.isEmpty()){
+                    user.setPassword(passwordBean.convertToSha256(password));
+                }
+                entityManager.merge(user);
+            }
+        }
+        catch (EJBException ex){
+            throw new EJBException(ex);
+        }
     }
 }
